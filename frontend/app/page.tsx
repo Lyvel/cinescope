@@ -3,8 +3,7 @@ import Trending from "@/pages/trending";
 
 export default function Home() {
   return (
-    <main className="w-1/2 m-auto my-10">
-      <Navbar />
+    <main>
       <Trending />
     </main>
   );

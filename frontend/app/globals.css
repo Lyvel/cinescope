@@ -23,4 +23,7 @@ body {
   .btn-filter {
     @apply rounded-full text-stone-500 bg-[#333333] py-2 px-4 hover:bg-green-400 outline-none hover:text-gray-800;
   }
+  .btn-filter-selected {
+    @apply rounded-full text-gray-800 bg-green-400 py-2 px-4 outline-none;
+  }
 }
