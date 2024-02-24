@@ -8,3 +8,10 @@ export const tags = [
   { title: "Mystery", value: "MYSTERY" },
   { title: "Thriller", value: "THRILLER" },
 ];
+
+export const navbarLinks = [
+  { title: "Trending", href: "/" },
+  { title: "Top Rated", href: "/top-rated" },
+  { title: "Upcoming", href: "/upcoming" },
+  { title: "Now Playing", href: "/now-playing" },
+];

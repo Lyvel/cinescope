@@ -1,8 +1,4 @@
-import MovieCard from "@/components/movie-card";
-import SearchBar from "@/components/search-bar";
-import TagFilters from "@/components/tag-filter";
-import Search from "@/pages/search";
-import { Movie, Movies } from "@/types";
+import Search from "@/components/pages/search-results";
 
 export default async function SearchPage({
   params,
@@ -10,7 +6,7 @@ export default async function SearchPage({
   params: { title: string };
 }) {
   return (
-    <main>
+    <main className="main-container">
       <Search params={params} />
     </main>
   );

@@ -1,9 +1,9 @@
-import Navbar from "@/components/navbar";
-import Trending from "@/pages/trending";
+import Trending from "@/components/pages/trending";
+import Test from "@/components/test";
 
 export default function Home() {
   return (
-    <main>
+    <main className="main-container">
       <Trending />
     </main>
   );

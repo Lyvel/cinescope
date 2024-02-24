@@ -7,6 +7,8 @@ import getGenreNameById from "./genres";
 const router = express.Router();
 dotenv.config();
 
+const url =
+  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
 const apiKey = process.env.APIKEY;
 const options = {
   method: "GET",
@@ -16,8 +18,7 @@ const options = {
   },
 };
 
-router.get("/:title", caching, async (req: Request, res: Response) => {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${req.params.title}&include_adult=false&language=en-US&page=1&region=GB`;
+router.get("/", caching, async (req: Request, res: Response) => {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
@@ -37,7 +38,7 @@ router.get("/:title", caching, async (req: Request, res: Response) => {
     });
 
     const movies = await Promise.all(moviesPromises); // Wait for all promises to resolve
-    res.json(movies);
+    res.json(movies); // Send the movies array back as response
   } catch (err) {
     console.error("error:" + err);
     res.status(500).send("An error occurred while fetching movies.");
