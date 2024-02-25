@@ -7,7 +7,7 @@ module.exports = {
       watch: true,
       env: {
         NODE_ENV: "production",
-        PORT: 3002, // Ensure this matches the Next.js port
+        PORT: 3000, // Ensure this matches the Next.js port
       },
     },
     {

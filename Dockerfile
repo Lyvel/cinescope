@@ -33,7 +33,7 @@ COPY backend/package*.json ./backend/
 COPY ecosystem.config.js ./
 
 # Expose the port your app runs on
-EXPOSE 3002
+EXPOSE 3000
 EXPOSE 3001
 
 # Start both frontend and backend using PM2
