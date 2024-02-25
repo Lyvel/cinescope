@@ -40,7 +40,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
               : FallbackPoster
           }
           alt="Movie Poster"
-          className="rounded-xl"
+          className="rounded-xl h-full m-auto"
           width={600}
           height={900}
         />

@@ -6,6 +6,8 @@ CineScope is a movie discovery app that allows users to search for movies, view 
 
 Check out the live demo here: [CineScope Live Demo](https://cinescope.lyvel.co.uk/)
 
+![Website Snippet](https://img001.prntscr.com/file/img001/jrga7tVaT7uzWfhjHHYMtw.png)
+
 ## Technology Stack
 
 CineScope is built using a modern technology stack to ensure high performance, scalability, and ease of maintenance:
@@ -42,9 +44,9 @@ Before running the app, you'll need to set up environment variables for both the
 #### Backend `.env` Configuration
 
 ```plaintext
-PORT=YOUR_PORT
-APIKEY=YOUR_TMDB_API_KEY
-CACHE_DURATION=CACHE_DURATION_IN_SECONDS
+PORT=YOUR_PORT (3001)
+APIKEY=YOUR_TMDB_API_KEY (APIKEY)
+CACHE_DURATION=CACHE_DURATION_IN_SECONDS (300)
 ```
 
 #### Frontend `.env` Configuration
@@ -56,11 +58,17 @@ APIURL=URL_TO_BACKEND_SERVER (http://localhost:3001/)
 ### Running the Backend
 
 1. Navigate to the `backend` directory:
-   `cd backend`
+   ```bash
+   cd backend
+   ```
 2. Install dependencies:
-   `npm install`
+   ```bash
+   npm install
+   ```
 3. Run the server:
-   `npm run dev`
+   ```
+   bash npm run dev
+   ```
 
 ### Running the Frontend
 

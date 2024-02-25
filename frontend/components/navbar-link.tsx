@@ -19,7 +19,7 @@ export default function NavbarLink(props: NavbarLinkProps) {
       href={props.href}
       className={`${
         props.currentPage === props.title && "border-b-2 border-green-400"
-      } hover:text-green-400`}
+      } hover:text-green-400 text-nowrap`}
       role="menuitem"
       onClick={() =>
         props.currentPage !== props.title ? dispatch(clearGenres()) : null
