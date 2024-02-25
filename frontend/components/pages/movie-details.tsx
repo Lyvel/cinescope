@@ -1,13 +1,21 @@
-import ImageFallback from "@/components/image-fallback";
 import { MovieDetails } from "@/lib/types";
 import FallbackPoster from "@/public/no-poster.png";
+import Image from "next/image";
+
+/**
+ * Displays details of a movie fetched from an API.
+ * @param {Object} props - The props object containing the parameters for the movie details.
+ * @param {Object} props.params - An object containing the movie ID as a string.
+ * @param {string} props.params.id - The ID of the movie to display details for.
+ * @returns {JSX.Element} JSX representing the movie details page.
+ */
 
 export default async function MovieDetails({
   params,
 }: {
   params: { id: string };
 }) {
-  const moviesQuery = await fetch("http://localhost:3001/movie/" + params.id, {
+  const moviesQuery = await fetch(process.env.APIURL + "movie/" + params.id, {
     cache: "default",
   });
   const movieDetails: MovieDetails = await moviesQuery.json();
@@ -20,15 +28,20 @@ export default async function MovieDetails({
               "${movieDetails.backdrop_path}"
             )`,
         }}
+        aria-hidden="true" // Hide the backdrop image from screen readers as it's decorative
       />
-      <section className="main-container">
+      <section className="main-container" aria-labelledby="movie-title">
         <div className="flex-col xl:flex-row flex justify-center gap-10 xl:pt-24 pt-10">
-          <ImageFallback
-            src={movieDetails.poster_path}
-            fallbackSrc={FallbackPoster}
+          <Image
+            src={
+              !movieDetails.poster_path.includes("null")
+                ? movieDetails.poster_path
+                : FallbackPoster
+            }
             alt="movie poster"
             width={300}
             height={450}
+            aria-labelledby="movie-poster"
           />
           <div className="p-10 flex-col flex items-center 2xl:items-start gap-5 h-full m-auto 2xl:bg-[#333333] rounded-3xl 2xl:text-left text-center">
             <h1 className="text-5xl font-bold tracking-wide flex flex-col 2xl:flex-row gap-2 justify-center items-center">

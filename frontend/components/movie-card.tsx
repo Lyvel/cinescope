@@ -5,26 +5,40 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import { MovieCardProps } from "@/lib/types";
 import FallbackPoster from "@/public/no-poster.png";
+import Image from "next/image";
 import Link from "next/link";
-import ImageFallback from "./image-fallback";
+// import ImageFallback from "./image-fallback";
+
+/**
+ * A component representing a movie card.
+ * @param {Object} props - The props object containing the movie details.
+ * @param {Object} props.movie - The movie object containing details like title, genre, release year, and rating.
+ * @returns {JSX.Element|null} JSX representing the movie card component or null if the current genre does not match the movie's genre.
+ */
 
 export default function MovieCard({ movie }: MovieCardProps) {
   const currentGenre = useAppSelector(
     (state: RootState) => state.genres.currentGenre
   );
   const dispatch = useAppDispatch();
-  dispatch(addGenre(movie.genre));
   dispatch(addMovie(movie));
+  dispatch(addGenre(movie.genre));
 
+  // Render the movie card only if it belongs to the current genre or the current genre is "All"
   if (currentGenre.name === "All" || currentGenre.name === movie.genre) {
     return (
       <Link
         href={`/movie/${movie.id}`}
         className="flex flex-col cursor-pointer xl:hover:scale-110 transition-all"
+        role="link"
+        aria-label={`View details of ${movie.title}`}
       >
-        <ImageFallback
-          src={movie.poster_path}
-          fallbackSrc={FallbackPoster}
+        <Image
+          src={
+            !movie.poster_path.includes("null")
+              ? movie.poster_path
+              : FallbackPoster
+          }
           alt="Movie Poster"
           className="rounded-xl"
           width={600}
@@ -44,4 +58,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
       </Link>
     );
   }
+
+  // Return null if the current genre does not match the movie's genre
+  return null;
 }

@@ -6,32 +6,53 @@ import SearchTitle from "@/components/search-title";
 import TagFilters from "@/components/tag-filter";
 import { Movie, Movies } from "@/lib/types";
 
+/**
+ * Renders the search results page with a navbar, search title, search bar, tag filters, and movies grid.
+ * @param {Object} props - The props object containing the parameters for the search results.
+ * @param {Object} props.params - An object containing the search query title as a string.
+ * @param {string} props.params.title - The title of the search query.
+ * @returns {JSX.Element} JSX representing the search results page.
+ */
+
 export default async function SearchResults({
   params,
 }: {
   params: { title: string };
 }) {
-  const moviesQuery = await fetch(
-    "http://localhost:3001/search/" + params.title,
-    {
-      cache: "default",
-    }
-  );
-  const movies: Movies = await moviesQuery.json();
+  let movies: Movies = [];
+  try {
+    const moviesQuery = await fetch(
+      process.env.APIURL + "search/" + params.title,
+      {
+        cache: "default",
+      }
+    );
+    movies = await moviesQuery.json();
+  } catch (error) {
+    console.error(error);
+  }
   return (
     <>
       <Navbar currentPage="search" />
-      <section className="lg:mt-16">
+      <section className="lg:mt-16" aria-labelledby="search-results">
         <SearchTitle />
         <div className="pt-10 flex flex-col gap-4">
-          <div className="xl:hidden">
+          <div className="xl:hidden" aria-hidden="true">
             <SearchBar />
           </div>
-          <ul className="flex gap-2 w-full">
+          <ul
+            className="flex gap-2 w-full"
+            role="list"
+            aria-label="Tag Filters"
+          >
             <TagFilters />
           </ul>
         </div>
-        <MoviesGrid movies={movies} />
+        {movies.length === 0 ? (
+          <h1 className="text-3xl font-bold pt-10">No Movies Found</h1>
+        ) : (
+          <MoviesGrid movies={movies} />
+        )}
       </section>
     </>
   );

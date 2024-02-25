@@ -13,6 +13,24 @@ body {
   background: rgb(var(--background-start-rgb));
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(33, 33, 33);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(40, 40, 40);
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(50, 50, 50);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -21,10 +39,10 @@ body {
 
 @layer components {
   .btn-filter {
-    @apply rounded-full text-stone-500 bg-[#333333] py-0 lg:py-2 px-4 hover:bg-green-400 outline-none hover:text-gray-800 items-center flex;
+    @apply rounded-full text-stone-500 bg-[#333333] py-0 lg:py-2 px-4 hover:bg-green-400 outline-none hover:text-gray-800 items-center flex text-nowrap;
   }
   .btn-filter-selected {
-    @apply rounded-full text-gray-800 bg-green-400 py-2 px-4 outline-none items-center flex;
+    @apply rounded-full text-gray-800 bg-green-400 py-0 lg:py-2 px-4 hover:bg-green-400 outline-none hover:text-gray-800 items-center flex text-nowrap;
   }
   .main-container {
     @apply 2xl:w-1/2 xl:w-2/3 mx-10 xl:mx-auto my-10;

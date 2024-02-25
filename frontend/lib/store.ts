@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "./features/counter/slice";
 import genresReducer from "./features/genres/slice";
 import moviesReducer from "./features/movies/slice";
 import searchResultsReducer from "./features/search-results/slice";
-import counterReducer from "./features/slice";
+/**
+ * A function that creates and configures the Redux store.
+ * @returns {EnhancedStore} The Redux store instance.
+ */
 export const makeStore = () => {
   return configureStore({
     reducer: {
