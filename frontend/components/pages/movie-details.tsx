@@ -42,6 +42,7 @@ export default async function MovieDetails({
             width={300}
             height={450}
             aria-labelledby="movie-poster"
+            className="rounded-xl h-full m-auto"
           />
           <div className="p-10 flex-col flex items-center 2xl:items-start gap-5 h-full m-auto 2xl:bg-[#333333] rounded-3xl 2xl:text-left text-center">
             <h1 className="text-5xl font-bold tracking-wide flex flex-col 2xl:flex-row gap-2 justify-center items-center">
