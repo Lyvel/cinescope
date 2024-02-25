@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  cinescopeapp:
+    build: .
+    ports:
+      - "3000:3000" # Frontend port
+      - "3001:3001" # Backend port
+    environment:
+      - NODE_ENV=production
+      - APIURL=http://localhost:3001/
+
+      - CACHE_DURATION=3600
+      - APIKEY=YOUR_API_KEY
+      - PORT=3001

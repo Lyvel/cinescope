@@ -107,4 +107,4 @@ docker-compose up --build
 
 Both the Docker and Docker Compose methods utilize environment variables as defined in the Dockerfile and docker-compose.yml. You can customise these variables as needed for your development or production environments.
 
-The `Dockerfile` installs `PM2` on the image allowing for running the frontend and backend on one image. To configure `PM2`, you can customise the `ecosystem.config.js` file.
+The `Dockerfile` installs `PM2` on the image allowing for running the `frontend` and `backend` on one image. To configure `PM2`, you can customise the `ecosystem.config.js` file.
