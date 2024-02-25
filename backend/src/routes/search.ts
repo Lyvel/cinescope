@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import fetch from "node-fetch";
-import caching from "../route-cache";
-import getGenreNameById from "./genres";
+import caching from "../middleware/route-cache";
+import getGenreNameById from "../utils/genres";
 
 const router = express.Router();
 dotenv.config();

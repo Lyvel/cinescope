@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import fetch from "node-fetch";
-import { cache } from "../route-cache";
+import { cache } from "../middleware/route-cache";
 import { Genre, GenresResponse } from "../types";
 dotenv.config();
 
