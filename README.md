@@ -66,18 +66,24 @@ APIURL=URL_TO_BACKEND_SERVER (http://localhost:3001/)
    npm install
    ```
 3. Run the server:
-   ```
-   bash npm run dev
+   ```bash 
+   npm run dev
    ```
 
 ### Running the Frontend
 
 1. Navigate to the `frontend` directory:
-   `cd frontend`
+   ```bash
+   cd frontend
+   ```
 2. Install dependencies:
-   `npm install`
+   ```bash
+   npm install
+   ```
 3. Run the Next.js app:
-   `npm run dev`
+   ```bash
+   npm run dev
+   ```
 
 The frontend should now be running on `http://localhost:3000`.
 
